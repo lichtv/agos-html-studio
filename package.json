@@ -1,0 +1,8 @@
+{
+  "name": "agos-html-studio",
+  "version": "1.0.0",
+  "description": "AGOS HTML Studio \u2014 Zero-Token Visual HTML Editor & Instant Vercel Publisher",
+  "scripts": {
+    "start": "npx serve ."
+  }
+}

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#5b6ef5">
+  <link rel="manifest" href="manifest.json">
+  <title>AGOS HTML Studio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/dracula.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ===== TITLEBAR ===== -->
+<div class="titlebar">
+  <div class="titlebar-title">
+    <span class="logo-badge">A</span>
+    AGOS HTML Studio
+  </div>
+  <div class="titlebar-actions">
+    <button id="btn-install-pwa" class="sidebar-btn primary" style="width:auto;padding:3px 10px;margin:0;font-size:11px;">
+      📲 Cài vào Dock / App
+    </button>
+    <span id="file-label" class="file-label">No file open</span>
+  </div>
+</div>
+
+<!-- ===== MAIN APP ===== -->
+<div class="app-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-label">FILE</div>
+      <button class="sidebar-btn primary" id="btn-open">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"/></svg>
+        Open File
+      </button>
+      <button class="sidebar-btn" id="btn-drive">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 3a7 7 0 100 14A7 7 0 0010 3z"/><path fill-rule="evenodd" d="M10 5a5 5 0 100 10A5 5 0 0010 5zm-1 4a1 1 0 112 0v4a1 1 0 11-2 0V9z" clip-rule="evenodd"/></svg>
+        From Drive Link
+      </button>
+      <button class="sidebar-btn" id="btn-save">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M7.707 10.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 11.586V6h5a2 2 0 012 2v7a2 2 0 01-2 2H4a2 2 0 01-2-2V8a2 2 0 012-2h5v5.586l-1.293-1.293z"/></svg>
+        Save File
+      </button>
+      <button class="sidebar-btn" id="btn-snapshot">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/></svg>
+        Save Version
+      </button>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-label">VERSIONS</div>
+      <div id="versions-list" class="versions-list">
+        <p class="empty-state">No versions yet.</p>
+      </div>
+    </div>
+
+    <div class="sidebar-section deploy-section">
+      <div class="sidebar-label">DEPLOY</div>
+      <button class="sidebar-btn deploy-btn ftp-btn" id="btn-deploy-ftp">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V13a1 1 0 11-2 0V5.414L7.707 6.707a1 1 0 01-1.414 0z" clip-rule="evenodd"/></svg>
+        Deploy via FTP
+      </button>
+      <button class="sidebar-btn deploy-btn vercel-btn" id="btn-deploy-vercel">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 2L2 17h16L10 2z"/></svg>
+        Deploy to Vercel
+      </button>
+      <button class="sidebar-btn settings-btn" id="btn-settings">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/></svg>
+        Settings
+      </button>
+    </div>
+  </aside>
+
+  <!-- EDITOR PANEL -->
+  <div class="editor-panel">
+    <div class="panel-header">
+      <span class="panel-title">Editor</span>
+      <div class="editor-toolbar">
+        <button class="toolbar-btn" id="btn-format" title="Format HTML">⚡ Format</button>
+        <button class="toolbar-btn" id="btn-wrap" title="Toggle word wrap">↩ Wrap</button>
+      </div>
+    </div>
+    <div id="editor-wrapper">
+      <textarea id="code-editor"></textarea>
+    </div>
+  </div>
+
+  <!-- PREVIEW PANEL -->
+  <div class="preview-panel">
+    <div class="panel-header">
+      <span class="panel-title">Live Preview</span>
+      <div class="preview-toolbar">
+        <button class="toolbar-btn" id="btn-refresh-preview" title="Refresh">↻ Refresh</button>
+        <button class="toolbar-btn" id="btn-preview-mobile" title="Toggle mobile view">📱</button>
+        <button class="toolbar-btn" id="btn-preview-desktop" title="Toggle desktop view">🖥</button>
+      </div>
+    </div>
+    <div class="preview-wrapper" id="preview-wrapper">
+      <iframe id="preview-frame" sandbox="allow-scripts allow-same-origin allow-forms allow-modals" src="about:blank"></iframe>
+    </div>
+  </div>
+
+</div>
+
+<!-- ===== MODALS ===== -->
+
+<!-- Drive Link Modal -->
+<div class="modal-overlay hidden" id="modal-drive">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>📁 Load from Google Drive</h3>
+      <button class="modal-close" onclick="closeModal('modal-drive')">✕</button>
+    </div>
+    <div class="modal-body">
+      <label class="form-label">Google Drive Share Link</label>
+      <input type="url" id="drive-url-input" class="form-input" placeholder="https://drive.google.com/file/d/...">
+      <p class="form-hint">Paste the "Share link" from Google Drive. The file must be set to "Anyone with the link can view".</p>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-ghost" onclick="closeModal('modal-drive')">Cancel</button>
+      <button class="btn-primary" id="btn-drive-load">Load File</button>
+    </div>
+  </div>
+</div>
+
+<!-- FTP Settings Modal -->
+<div class="modal-overlay hidden" id="modal-ftp">
+  <div class="modal modal-wide">
+    <div class="modal-header">
+      <h3>🚀 FTP Deploy</h3>
+      <button class="modal-close" onclick="closeModal('modal-ftp')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label">Host</label>
+          <input type="text" id="ftp-host" class="form-input" placeholder="ftp.example.com">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Port</label>
+          <input type="number" id="ftp-port" class="form-input" placeholder="21" value="21">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Username</label>
+          <input type="text" id="ftp-user" class="form-input" placeholder="username">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Password</label>
+          <input type="password" id="ftp-pass" class="form-input" placeholder="••••••••">
+        </div>
+        <div class="form-group form-group-full">
+          <label class="form-label">Remote Path</label>
+          <input type="text" id="ftp-path" class="form-input" placeholder="/public_html/">
+        </div>
+        <div class="form-group">
+          <label class="form-label-check">
+            <input type="checkbox" id="ftp-secure"> Use FTPS (SSL)
+          </label>
+        </div>
+      </div>
+      <div class="deploy-log" id="ftp-log"></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-ghost" onclick="closeModal('modal-ftp')">Close</button>
+      <button class="btn-primary" id="btn-ftp-deploy">Deploy Now</button>
+    </div>
+  </div>
+</div>
+
+<!-- Vercel Modal -->
+<div class="modal-overlay hidden" id="modal-vercel">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>▲ Deploy to Vercel (1-Click)</h3>
+      <button class="modal-close" onclick="closeModal('modal-vercel')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label class="form-label">Tên Dự Án Vercel (Project Name)</label>
+        <input type="text" id="vercel-project-name" class="form-input" placeholder="ví dụ: my-landing-page">
+        <p class="form-hint">Mọi lần sửa sau sẽ tự động cập nhật đè lên cùng 1 đường link Vercel này.</p>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Vercel Token (Không bắt buộc nếu đã Login)</label>
+        <input type="password" id="vercel-token" class="form-input" placeholder="Dán Token nếu muốn lưu cố định">
+        <p class="form-hint">Lấy Token tại: <code>https://vercel.com/account/tokens</code></p>
+      </div>
+      <div class="deploy-log" id="vercel-log"></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-ghost" onclick="closeModal('modal-vercel')">Đóng</button>
+      <button class="btn-primary" id="btn-vercel-deploy">Xuất Bản Ngay</button>
+    </div>
+  </div>
+</div>
+
+<!-- Versions Modal -->
+<div class="modal-overlay hidden" id="modal-versions">
+  <div class="modal modal-wide">
+    <div class="modal-header">
+      <h3>📜 Version History</h3>
+      <button class="modal-close" onclick="closeModal('modal-versions')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div id="modal-versions-list" class="modal-versions-list"></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-ghost" onclick="closeModal('modal-versions')">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div id="toast" class="toast hidden"></div>
+
+<!-- SCRIPTS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/xml/xml.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/css/css.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/htmlmixed/htmlmixed.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/edit/closetag.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/edit/matchbrackets.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/selection/active-line.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
