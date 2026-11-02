@@ -601,3 +601,126 @@ function showToast(msg, type = '') {
   clearTimeout(toastTimer);
   toastTimer = setTimeout(() => { el.classList.add('hidden'); }, 3000);
 }
+
+
+// ==================== AGOS TEMPLATES LIBRARY ====================
+let allTemplates = [];
+let currentCategory = "all";
+
+const btnTemplates = document.getElementById("btn-templates");
+const modalTemplates = document.getElementById("modal-templates");
+const modalTemplatesClose = document.getElementById("modal-templates-close");
+const templatesGrid = document.getElementById("templates-grid");
+const templateSearch = document.getElementById("template-search");
+const categoryChips = document.getElementById("category-chips");
+
+async function loadTemplatesLibrary() {
+  if (allTemplates.length > 0) {
+    renderTemplates();
+    return;
+  }
+  try {
+    const res = await fetch("templates_index.json");
+    if (!res.ok) throw new Error("Could not load templates index");
+    allTemplates = await res.json();
+    renderCategories();
+    renderTemplates();
+  } catch (err) {
+    if (templatesGrid) templatesGrid.innerHTML = `<div style="color:#ff6b6b;grid-column:1/-1;text-align:center;">Lỗi nạp thư viện: ${err.message}</div>`;
+  }
+}
+
+function renderCategories() {
+  if (!categoryChips) return;
+  const cats = ["all", ...new Set(allTemplates.map(t => t.category))].sort();
+  categoryChips.innerHTML = cats.map(cat => `
+    <button class="category-chip ${cat === currentCategory ? 'active' : ''}" data-cat="${cat}">
+      ${cat === 'all' ? 'Tất cả (75)' : cat}
+    </button>
+  `).join("");
+
+  categoryChips.querySelectorAll(".category-chip").forEach(btn => {
+    btn.addEventListener("click", () => {
+      currentCategory = btn.dataset.cat;
+      categoryChips.querySelectorAll(".category-chip").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      renderTemplates();
+    });
+  });
+}
+
+function renderTemplates() {
+  if (!templatesGrid) return;
+  const query = (templateSearch ? templateSearch.value : "").toLowerCase().trim();
+  const filtered = allTemplates.filter(t => {
+    const matchCat = (currentCategory === "all" || t.category === currentCategory);
+    const matchQuery = !query || 
+      t.name.toLowerCase().includes(query) || 
+      t.id.toLowerCase().includes(query) || 
+      (t.tags && t.tags.some(tag => tag.toLowerCase().includes(query))) ||
+      (t.scenario && t.scenario.toLowerCase().includes(query));
+    return matchCat && matchQuery;
+  });
+
+  if (filtered.length === 0) {
+    templatesGrid.innerHTML = `<div style="color:#8c93a8;grid-column:1/-1;text-align:center;padding:40px;">Không tìm thấy template phù hợp.</div>`;
+    return;
+  }
+
+  templatesGrid.innerHTML = filtered.map(t => `
+    <div class="template-card" data-id="${t.id}" data-file="${t.file}">
+      <div>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+          <span class="template-badge">${t.category}</span>
+          <span style="font-size:11px; color:#8c93a8;">${t.aspect || 'Mặc định'}</span>
+        </div>
+        <div style="font-weight:600; font-size:14px; color:#fff; margin-bottom:4px;">${t.name}</div>
+        <div style="font-size:12px; color:#8c93a8; margin-bottom:8px;">ID: ${t.id}</div>
+        <div style="font-size:11px; color:#6b7280; display:flex; flex-wrap:wrap; gap:4px; margin-bottom:12px;">
+          ${(t.tags || []).slice(0, 3).map(tag => `<span style="background:rgba(255,255,255,0.05);padding:1px 5px;border-radius:3px;">#${tag}</span>`).join('')}
+        </div>
+      </div>
+      <button class="sidebar-btn primary" style="width:100%; justify-content:center; padding:6px; font-size:12px;" onclick="selectTemplate('${t.file}', '${t.name}')">
+        ⚡ Dùng Template này
+      </button>
+    </div>
+  `).join("");
+}
+
+window.selectTemplate = async function(file, name) {
+  try {
+    const res = await fetch(file);
+    if (!res.ok) throw new Error("Could not load template file");
+    const content = await res.text();
+    editor.setValue(content);
+    currentFileName = name + ".html";
+    if (fileLabel) fileLabel.textContent = currentFileName;
+    if (modalTemplates) modalTemplates.classList.add("hidden");
+    showToast(`Đã tải template: ${name}`);
+  } catch (err) {
+    alert("Lỗi tải template: " + err.message);
+  }
+};
+
+if (btnTemplates) {
+  btnTemplates.addEventListener("click", () => {
+    if (modalTemplates) modalTemplates.classList.remove("hidden");
+    loadTemplatesLibrary();
+  });
+}
+
+if (modalTemplatesClose) {
+  modalTemplatesClose.addEventListener("click", () => {
+    if (modalTemplates) modalTemplates.classList.add("hidden");
+  });
+}
+
+if (modalTemplates) {
+  modalTemplates.addEventListener("click", (e) => {
+    if (e.target === modalTemplates) modalTemplates.classList.add("hidden");
+  });
+}
+
+if (templateSearch) {
+  templateSearch.addEventListener("input", renderTemplates);
+}

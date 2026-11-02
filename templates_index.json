@@ -1,0 +1,1138 @@
+[
+  {
+    "id": "article-magazine",
+    "name": "Magazine Article",
+    "zh_name": "杂志文章",
+    "category": "article",
+    "scenario": "marketing",
+    "aspect": "A4 / 长页面",
+    "tags": [
+      "blog",
+      "essay",
+      "newsletter",
+      "公众号",
+      "博客",
+      "文章"
+    ],
+    "file": "templates/article-magazine.html"
+  },
+  {
+    "id": "blog-post",
+    "name": "Blog Post",
+    "zh_name": "博客长文",
+    "category": "article",
+    "scenario": "marketing",
+    "aspect": "长页面",
+    "tags": [
+      "blog",
+      "essay",
+      "case study",
+      "长文"
+    ],
+    "file": "templates/blog-post.html"
+  },
+  {
+    "id": "card-twitter",
+    "name": "Twitter Share Card",
+    "zh_name": "Twitter 分享卡",
+    "category": "card",
+    "scenario": "marketing",
+    "aspect": "1600×900 (16:9)",
+    "tags": [
+      "twitter",
+      "x",
+      "quote",
+      "金句"
+    ],
+    "file": "templates/card-twitter.html"
+  },
+  {
+    "id": "card-xiaohongshu",
+    "name": "Xiaohongshu Card",
+    "zh_name": "小红书图文卡片",
+    "category": "card",
+    "scenario": "marketing",
+    "aspect": "1080×1440 (3:4)",
+    "tags": [
+      "xhs",
+      "小红书",
+      "carousel",
+      "图文"
+    ],
+    "file": "templates/card-xiaohongshu.html"
+  },
+  {
+    "id": "dashboard",
+    "name": "Admin Dashboard",
+    "zh_name": "管理后台仪表板",
+    "category": "dashboard",
+    "scenario": "operations",
+    "aspect": "桌面 1440",
+    "tags": [
+      "dashboard",
+      "admin",
+      "analytics"
+    ],
+    "file": "templates/dashboard.html"
+  },
+  {
+    "id": "data-report",
+    "name": "Data Visualization Report",
+    "zh_name": "数据可视化报告",
+    "category": "data",
+    "scenario": "finance",
+    "aspect": "桌面长页面",
+    "tags": [
+      "data",
+      "report",
+      "chart",
+      "数据",
+      "报告"
+    ],
+    "file": "templates/data-report.html"
+  },
+  {
+    "id": "dating-web",
+    "name": "Dating / Community Dashboard",
+    "zh_name": "社区 / 配对数据墙",
+    "category": "dashboard",
+    "scenario": "personal",
+    "aspect": "桌面 1440",
+    "tags": [
+      "dating",
+      "community",
+      "consumer"
+    ],
+    "file": "templates/dating-web.html"
+  },
+  {
+    "id": "deck-blueprint",
+    "name": "Knowledge Arch Blueprint",
+    "zh_name": "蓝图架构 Deck",
+    "category": "slides",
+    "scenario": "engineering",
+    "aspect": "16:9",
+    "tags": [
+      "blueprint",
+      "architecture",
+      "engineering"
+    ],
+    "file": "templates/deck-blueprint.html"
+  },
+  {
+    "id": "deck-course-module",
+    "name": "Course Module Deck",
+    "zh_name": "课程 / 培训 Deck",
+    "category": "slides",
+    "scenario": "education",
+    "aspect": "16:9",
+    "tags": [
+      "course",
+      "workshop",
+      "training",
+      "教学"
+    ],
+    "file": "templates/deck-course-module.html"
+  },
+  {
+    "id": "deck-dir-key-nav",
+    "name": "Dir-Key Nav Minimal Deck",
+    "zh_name": "极简方向键 Keynote",
+    "category": "slides",
+    "scenario": "personal",
+    "aspect": "16:9",
+    "tags": [
+      "minimal",
+      "kbd",
+      "monocolor"
+    ],
+    "file": "templates/deck-dir-key-nav.html"
+  },
+  {
+    "id": "deck-graphify-dark",
+    "name": "Graphify Dark Deck",
+    "zh_name": "暗底图谱 Deck",
+    "category": "slides",
+    "scenario": "engineering",
+    "aspect": "16:9",
+    "tags": [
+      "graph",
+      "dev tool",
+      "ai",
+      "cli"
+    ],
+    "file": "templates/deck-graphify-dark.html"
+  },
+  {
+    "id": "deck-guizang-editorial",
+    "name": "Guizang Editorial E-Ink Deck",
+    "zh_name": "贵赞编辑墨水 Deck",
+    "category": "slides",
+    "scenario": "marketing",
+    "aspect": "16:9 横向翻页",
+    "tags": [
+      "editorial",
+      "e-ink",
+      "magazine",
+      "narrative",
+      "guizang"
+    ],
+    "file": "templates/deck-guizang-editorial.html"
+  },
+  {
+    "id": "deck-hermes-cyber",
+    "name": "Hermes Cyber Terminal Deck",
+    "zh_name": "Cyber Terminal Deck",
+    "category": "slides",
+    "scenario": "engineering",
+    "aspect": "16:9",
+    "tags": [
+      "cyber",
+      "terminal",
+      "review",
+      "cli"
+    ],
+    "file": "templates/deck-hermes-cyber.html"
+  },
+  {
+    "id": "deck-magazine-web",
+    "name": "Magazine Web Deck",
+    "zh_name": "杂志风网页 PPT",
+    "category": "slides",
+    "scenario": "marketing",
+    "aspect": "16:9 横向翻页",
+    "tags": [
+      "magazine",
+      "editorial",
+      "e-ink",
+      "horizontal swipe"
+    ],
+    "file": "templates/deck-magazine-web.html"
+  },
+  {
+    "id": "deck-obsidian-claude",
+    "name": "Obsidian Claude Gradient Deck",
+    "zh_name": "GitHub Dark 紫渐变 Deck",
+    "category": "slides",
+    "scenario": "engineering",
+    "aspect": "16:9",
+    "tags": [
+      "github",
+      "dark",
+      "purple",
+      "mcp",
+      "agent"
+    ],
+    "file": "templates/deck-obsidian-claude.html"
+  },
+  {
+    "id": "deck-open-slide-canvas",
+    "name": "Open-Slide 1920 Canvas Deck",
+    "zh_name": "1920 画布自由 Deck",
+    "category": "slides",
+    "scenario": "design",
+    "aspect": "1920×1080 (16:9)",
+    "tags": [
+      "canvas",
+      "open-slide",
+      "freeform",
+      "1920",
+      "react"
+    ],
+    "file": "templates/deck-open-slide-canvas.html"
+  },
+  {
+    "id": "deck-pitch",
+    "name": "Investor Pitch Deck",
+    "zh_name": "投资人 Pitch Deck",
+    "category": "slides",
+    "scenario": "finance",
+    "aspect": "16:9 ×10",
+    "tags": [
+      "pitch",
+      "investor",
+      "seed",
+      "vc"
+    ],
+    "file": "templates/deck-pitch.html"
+  },
+  {
+    "id": "deck-presenter-mode",
+    "name": "Presenter Mode Deck",
+    "zh_name": "演讲者模式 Deck",
+    "category": "slides",
+    "scenario": "engineering",
+    "aspect": "16:9",
+    "tags": [
+      "presenter",
+      "notes",
+      "提词",
+      "teleprompter"
+    ],
+    "file": "templates/deck-presenter-mode.html"
+  },
+  {
+    "id": "deck-product-launch",
+    "name": "Product Launch Deck",
+    "zh_name": "产品发布 Keynote",
+    "category": "slides",
+    "scenario": "marketing",
+    "aspect": "16:9",
+    "tags": [
+      "launch",
+      "keynote",
+      "product"
+    ],
+    "file": "templates/deck-product-launch.html"
+  },
+  {
+    "id": "deck-replit",
+    "name": "Replit Slides Deck",
+    "zh_name": "Replit Slides 风 Deck",
+    "category": "slides",
+    "scenario": "product",
+    "aspect": "16:9",
+    "tags": [
+      "replit",
+      "themed",
+      "memo"
+    ],
+    "file": "templates/deck-replit.html"
+  },
+  {
+    "id": "deck-safety-alert",
+    "name": "Testing / Safety Alert Deck",
+    "zh_name": "安全 / 风险红色 Deck",
+    "category": "slides",
+    "scenario": "engineering",
+    "aspect": "16:9",
+    "tags": [
+      "safety",
+      "security",
+      "policy",
+      "incident"
+    ],
+    "file": "templates/deck-safety-alert.html"
+  },
+  {
+    "id": "deck-simple",
+    "name": "Simple Deck",
+    "zh_name": "通用 Simple Deck",
+    "category": "slides",
+    "scenario": "product",
+    "aspect": "16:9",
+    "tags": [
+      "deck",
+      "simple",
+      "swipe"
+    ],
+    "file": "templates/deck-simple.html"
+  },
+  {
+    "id": "deck-swiss-international",
+    "name": "Swiss International Deck",
+    "zh_name": "瑞士国际主义 Deck",
+    "category": "slides",
+    "scenario": "marketing",
+    "aspect": "16:9 横向翻页",
+    "tags": [
+      "swiss",
+      "grid",
+      "international",
+      "ikb",
+      "editorial",
+      "facts"
+    ],
+    "file": "templates/deck-swiss-international.html"
+  },
+  {
+    "id": "deck-tech-sharing",
+    "name": "Tech Sharing Deck",
+    "zh_name": "技术分享 Deck",
+    "category": "slides",
+    "scenario": "engineering",
+    "aspect": "16:9",
+    "tags": [
+      "tech talk",
+      "conference",
+      "engineering"
+    ],
+    "file": "templates/deck-tech-sharing.html"
+  },
+  {
+    "id": "deck-xhs-pastel",
+    "name": "Pastel Slow-life Deck",
+    "zh_name": "马卡龙慢生活 Deck",
+    "category": "slides",
+    "scenario": "personal",
+    "aspect": "16:9",
+    "tags": [
+      "xhs",
+      "pastel",
+      "lifestyle",
+      "lifestyle"
+    ],
+    "file": "templates/deck-xhs-pastel.html"
+  },
+  {
+    "id": "deck-xhs-post",
+    "name": "Xiaohongshu Post Deck",
+    "zh_name": "小红书图文 Deck",
+    "category": "slides",
+    "scenario": "marketing",
+    "aspect": "810×1080 ×9",
+    "tags": [
+      "xhs",
+      "instagram",
+      "carousel"
+    ],
+    "file": "templates/deck-xhs-post.html"
+  },
+  {
+    "id": "deck-xhs-white",
+    "name": "White Editorial Deck",
+    "zh_name": "白底杂志风 Deck",
+    "category": "slides",
+    "scenario": "marketing",
+    "aspect": "16:9 / 3:4",
+    "tags": [
+      "editorial",
+      "rainbow",
+      "macaron"
+    ],
+    "file": "templates/deck-xhs-white.html"
+  },
+  {
+    "id": "digital-eguide",
+    "name": "Digital E-Guide",
+    "zh_name": "电子指南",
+    "category": "article",
+    "scenario": "marketing",
+    "aspect": "双页预览",
+    "tags": [
+      "eguide",
+      "lookbook",
+      "lead magnet",
+      "playbook"
+    ],
+    "file": "templates/digital-eguide.html"
+  },
+  {
+    "id": "doc-kami-parchment",
+    "name": "Kami Parchment Document",
+    "zh_name": "Kami 羊皮纸文档",
+    "category": "doc",
+    "scenario": "personal",
+    "aspect": "A4 / Letter 长页",
+    "tags": [
+      "kami",
+      "parchment",
+      "serif",
+      "editorial",
+      "report",
+      "letter",
+      "one-pager"
+    ],
+    "file": "templates/doc-kami-parchment.html"
+  },
+  {
+    "id": "docs-page",
+    "name": "Docs Page",
+    "zh_name": "技术文档页",
+    "category": "doc",
+    "scenario": "engineering",
+    "aspect": "桌面 1440",
+    "tags": [
+      "docs",
+      "api",
+      "tutorial",
+      "guide"
+    ],
+    "file": "templates/docs-page.html"
+  },
+  {
+    "id": "email-marketing",
+    "name": "Marketing Email",
+    "zh_name": "营销邮件",
+    "category": "email",
+    "scenario": "marketing",
+    "aspect": "600 邮件宽",
+    "tags": [
+      "email",
+      "newsletter",
+      "mjml"
+    ],
+    "file": "templates/email-marketing.html"
+  },
+  {
+    "id": "eng-runbook",
+    "name": "Engineering Runbook",
+    "zh_name": "工程 Runbook",
+    "category": "doc",
+    "scenario": "engineering",
+    "aspect": "长页面",
+    "tags": [
+      "runbook",
+      "ops",
+      "oncall",
+      "sre"
+    ],
+    "file": "templates/eng-runbook.html"
+  },
+  {
+    "id": "finance-report",
+    "name": "Finance Report",
+    "zh_name": "季度财报",
+    "category": "finance",
+    "scenario": "finance",
+    "aspect": "长页面",
+    "tags": [
+      "financial",
+      "p&l",
+      "mrr",
+      "财报"
+    ],
+    "file": "templates/finance-report.html"
+  },
+  {
+    "id": "flowai-team-dashboard",
+    "name": "FlowAI Team Dashboard",
+    "zh_name": "FlowAI 团队管理",
+    "category": "dashboard",
+    "scenario": "operations",
+    "aspect": "桌面 1440",
+    "tags": [
+      "flowai",
+      "team",
+      "members"
+    ],
+    "file": "templates/flowai-team-dashboard.html"
+  },
+  {
+    "id": "frame-data-chart-nyt",
+    "name": "NYT-Style Data Chart Frame",
+    "zh_name": "NYT 风数据图表帧",
+    "category": "video",
+    "scenario": "video",
+    "aspect": "1920×1080 (16:9)",
+    "tags": [
+      "data",
+      "chart",
+      "nyt",
+      "editorial",
+      "frame"
+    ],
+    "file": "templates/frame-data-chart-nyt.html"
+  },
+  {
+    "id": "frame-flowchart-sticky",
+    "name": "Sticky Flowchart Frame",
+    "zh_name": "便利贴流程图帧",
+    "category": "video",
+    "scenario": "operations",
+    "aspect": "1920×1080 (16:9)",
+    "tags": [
+      "flowchart",
+      "diagram",
+      "sticky",
+      "whiteboard",
+      "frame"
+    ],
+    "file": "templates/frame-flowchart-sticky.html"
+  },
+  {
+    "id": "frame-glitch-title",
+    "name": "Glitch Title Frame",
+    "zh_name": "故障艺术标题帧",
+    "category": "video",
+    "scenario": "video",
+    "aspect": "1920×1080 (16:9)",
+    "tags": [
+      "glitch",
+      "cyberpunk",
+      "title",
+      "transition",
+      "vfx",
+      "frame"
+    ],
+    "file": "templates/frame-glitch-title.html"
+  },
+  {
+    "id": "frame-light-leak-cinema",
+    "name": "Light-Leak Cinematic Frame",
+    "zh_name": "胶片漏光电影帧",
+    "category": "video",
+    "scenario": "video",
+    "aspect": "2.39:1 letterbox (1920×800) 或 16:9 (1920×1080)",
+    "tags": [
+      "cinema",
+      "film",
+      "light-leak",
+      "grain",
+      "letterbox",
+      "frame"
+    ],
+    "file": "templates/frame-light-leak-cinema.html"
+  },
+  {
+    "id": "frame-liquid-bg-hero",
+    "name": "Liquid Background Hero",
+    "zh_name": "流体背景 Hero 帧",
+    "category": "poster",
+    "scenario": "video",
+    "aspect": "1920×1080 (16:9) 或 1080×1920 (9:16)",
+    "tags": [
+      "liquid",
+      "fluid",
+      "background",
+      "hero",
+      "html-in-canvas",
+      "vfx"
+    ],
+    "file": "templates/frame-liquid-bg-hero.html"
+  },
+  {
+    "id": "frame-logo-outro",
+    "name": "Logo Outro Frame",
+    "zh_name": "品牌 Logo 收尾帧",
+    "category": "video",
+    "scenario": "video",
+    "aspect": "1920×1080 (16:9)",
+    "tags": [
+      "logo",
+      "outro",
+      "branding",
+      "end-card",
+      "frame"
+    ],
+    "file": "templates/frame-logo-outro.html"
+  },
+  {
+    "id": "frame-macos-notification",
+    "name": "macOS Notification Banner",
+    "zh_name": "macOS 通知横幅",
+    "category": "card",
+    "scenario": "video",
+    "aspect": "1920×1080 视频或 480×120 横幅",
+    "tags": [
+      "macos",
+      "notification",
+      "banner",
+      "overlay",
+      "frame"
+    ],
+    "file": "templates/frame-macos-notification.html"
+  },
+  {
+    "id": "gamified-app",
+    "name": "Gamified App",
+    "zh_name": "游戏化 App 多屏",
+    "category": "mobile",
+    "scenario": "personal",
+    "aspect": "3 × iPhone",
+    "tags": [
+      "gamified",
+      "habit",
+      "rpg",
+      "quest",
+      "xp"
+    ],
+    "file": "templates/gamified-app.html"
+  },
+  {
+    "id": "hr-onboarding",
+    "name": "HR Onboarding",
+    "zh_name": "新员工入职页",
+    "category": "doc",
+    "scenario": "hr",
+    "aspect": "长页面",
+    "tags": [
+      "onboarding",
+      "入职",
+      "first week"
+    ],
+    "file": "templates/hr-onboarding.html"
+  },
+  {
+    "id": "invoice",
+    "name": "Printable Invoice",
+    "zh_name": "可打印发票",
+    "category": "finance",
+    "scenario": "finance",
+    "aspect": "A4",
+    "tags": [
+      "invoice",
+      "bill",
+      "发票"
+    ],
+    "file": "templates/invoice.html"
+  },
+  {
+    "id": "kanban-board",
+    "name": "Kanban Board",
+    "zh_name": "看板 / Kanban",
+    "category": "dashboard",
+    "scenario": "operations",
+    "aspect": "桌面 1440",
+    "tags": [
+      "kanban",
+      "trello",
+      "sprint",
+      "看板"
+    ],
+    "file": "templates/kanban-board.html"
+  },
+  {
+    "id": "live-dashboard",
+    "name": "Live Team Dashboard",
+    "zh_name": "Notion 风团队仪表板",
+    "category": "dashboard",
+    "scenario": "operations",
+    "aspect": "桌面长页",
+    "tags": [
+      "notion",
+      "team",
+      "live",
+      "dashboard"
+    ],
+    "file": "templates/live-dashboard.html"
+  },
+  {
+    "id": "magazine-poster",
+    "name": "Magazine Poster",
+    "zh_name": "杂志风海报",
+    "category": "poster",
+    "scenario": "marketing",
+    "aspect": "竖版长图",
+    "tags": [
+      "magazine",
+      "newsprint",
+      "editorial",
+      "manifesto"
+    ],
+    "file": "templates/magazine-poster.html"
+  },
+  {
+    "id": "meeting-notes",
+    "name": "Meeting Notes",
+    "zh_name": "会议纪要",
+    "category": "doc",
+    "scenario": "operations",
+    "aspect": "长页面",
+    "tags": [
+      "minutes",
+      "meeting",
+      "1:1",
+      "纪要"
+    ],
+    "file": "templates/meeting-notes.html"
+  },
+  {
+    "id": "mobile-app",
+    "name": "Mobile App Screen",
+    "zh_name": "iPhone App 单屏",
+    "category": "mobile",
+    "scenario": "design",
+    "aspect": "iPhone 15 Pro frame",
+    "tags": [
+      "mobile",
+      "ios",
+      "app",
+      "phone"
+    ],
+    "file": "templates/mobile-app.html"
+  },
+  {
+    "id": "mobile-onboarding",
+    "name": "Mobile Onboarding",
+    "zh_name": "App 引导多屏",
+    "category": "mobile",
+    "scenario": "design",
+    "aspect": "3 × iPhone",
+    "tags": [
+      "onboarding",
+      "ios",
+      "signup",
+      "引导"
+    ],
+    "file": "templates/mobile-onboarding.html"
+  },
+  {
+    "id": "mockup-device-3d",
+    "name": "Device 3D Showcase",
+    "zh_name": "iPhone × MacBook 立体展架",
+    "category": "poster",
+    "scenario": "product",
+    "aspect": "1920×1080 (16:9)",
+    "tags": [
+      "device",
+      "mockup",
+      "iphone",
+      "macbook",
+      "html-in-canvas",
+      "product"
+    ],
+    "file": "templates/mockup-device-3d.html"
+  },
+  {
+    "id": "motion-frames",
+    "name": "Motion Frames",
+    "zh_name": "动效英雄帧",
+    "category": "video",
+    "scenario": "marketing",
+    "aspect": "桌面 hero",
+    "tags": [
+      "motion",
+      "title card",
+      "loop",
+      "video poster"
+    ],
+    "file": "templates/motion-frames.html"
+  },
+  {
+    "id": "pm-spec",
+    "name": "Product Spec / PRD",
+    "zh_name": "PRD / 产品 Spec",
+    "category": "doc",
+    "scenario": "product",
+    "aspect": "长页面",
+    "tags": [
+      "prd",
+      "spec",
+      "需求",
+      "product"
+    ],
+    "file": "templates/pm-spec.html"
+  },
+  {
+    "id": "poster-hero",
+    "name": "Marketing Poster",
+    "zh_name": "营销海报",
+    "category": "poster",
+    "scenario": "marketing",
+    "aspect": "1080×1920 竖版",
+    "tags": [
+      "poster",
+      "海报",
+      "朋友圈"
+    ],
+    "file": "templates/poster-hero.html"
+  },
+  {
+    "id": "ppt-keynote",
+    "name": "Keynote-style Slides",
+    "zh_name": "Keynote 风格 PPT",
+    "category": "slides",
+    "scenario": "marketing",
+    "aspect": "16:9 (1280×720)",
+    "tags": [
+      "slides",
+      "deck",
+      "presentation",
+      "幻灯片",
+      "演讲"
+    ],
+    "file": "templates/ppt-keynote.html"
+  },
+  {
+    "id": "pricing-page",
+    "name": "Pricing Page",
+    "zh_name": "定价页",
+    "category": "prototype",
+    "scenario": "sales",
+    "aspect": "桌面 1440",
+    "tags": [
+      "pricing",
+      "plans",
+      "定价"
+    ],
+    "file": "templates/pricing-page.html"
+  },
+  {
+    "id": "prototype-web",
+    "name": "Web Prototype",
+    "zh_name": "Web 产品原型",
+    "category": "prototype",
+    "scenario": "design",
+    "aspect": "1440×900 桌面",
+    "tags": [
+      "prototype",
+      "landing",
+      "原型"
+    ],
+    "file": "templates/prototype-web.html"
+  },
+  {
+    "id": "resume-modern",
+    "name": "Modern Resume",
+    "zh_name": "极简简历",
+    "category": "resume",
+    "scenario": "personal",
+    "aspect": "A4 (210×297mm)",
+    "tags": [
+      "resume",
+      "cv",
+      "简历"
+    ],
+    "file": "templates/resume-modern.html"
+  },
+  {
+    "id": "saas-landing",
+    "name": "SaaS Landing",
+    "zh_name": "SaaS Landing",
+    "category": "prototype",
+    "scenario": "marketing",
+    "aspect": "桌面 1440",
+    "tags": [
+      "saas",
+      "landing",
+      "marketing"
+    ],
+    "file": "templates/saas-landing.html"
+  },
+  {
+    "id": "social-carousel",
+    "name": "Social Carousel",
+    "zh_name": "社交媒体三联",
+    "category": "card",
+    "scenario": "marketing",
+    "aspect": "1080×1080 ×3",
+    "tags": [
+      "instagram",
+      "linkedin",
+      "thread",
+      "carousel",
+      "三联"
+    ],
+    "file": "templates/social-carousel.html"
+  },
+  {
+    "id": "social-media-dashboard",
+    "name": "Social Media Dashboard",
+    "zh_name": "社媒创作者仪表板",
+    "category": "dashboard",
+    "scenario": "creator",
+    "aspect": "桌面 1440",
+    "tags": [
+      "social",
+      "creator",
+      "analytics",
+      "x",
+      "linkedin",
+      "tiktok"
+    ],
+    "file": "templates/social-media-dashboard.html"
+  },
+  {
+    "id": "social-media-matrix",
+    "name": "Social Media Matrix Tracker",
+    "zh_name": "社媒矩阵追踪面板",
+    "category": "dashboard",
+    "scenario": "creator",
+    "aspect": "桌面长页",
+    "tags": [
+      "matrix",
+      "tracker",
+      "multi-platform"
+    ],
+    "file": "templates/social-media-matrix.html"
+  },
+  {
+    "id": "social-reddit-card",
+    "name": "Reddit Post Card",
+    "zh_name": "Reddit 帖子卡",
+    "category": "card",
+    "scenario": "marketing",
+    "aspect": "1280×720 或 800×600",
+    "tags": [
+      "reddit",
+      "social",
+      "card",
+      "overlay",
+      "story"
+    ],
+    "file": "templates/social-reddit-card.html"
+  },
+  {
+    "id": "social-spotify-card",
+    "name": "Spotify Now-Playing Card",
+    "zh_name": "Spotify 正在播放卡",
+    "category": "card",
+    "scenario": "personal",
+    "aspect": "1280×720 或 600×200",
+    "tags": [
+      "spotify",
+      "music",
+      "now-playing",
+      "card",
+      "overlay"
+    ],
+    "file": "templates/social-spotify-card.html"
+  },
+  {
+    "id": "social-x-post-card",
+    "name": "X / Twitter Post Card",
+    "zh_name": "X (Twitter) 帖子卡",
+    "category": "card",
+    "scenario": "marketing",
+    "aspect": "1280×720 或 1080×1080",
+    "tags": [
+      "twitter",
+      "x",
+      "social",
+      "card",
+      "overlay"
+    ],
+    "file": "templates/social-x-post-card.html"
+  },
+  {
+    "id": "sprite-animation",
+    "name": "Sprite Animation",
+    "zh_name": "像素动画解说",
+    "category": "poster",
+    "scenario": "marketing",
+    "aspect": "竖版/横版均可",
+    "tags": [
+      "pixel",
+      "8-bit",
+      "复古",
+      "explainer"
+    ],
+    "file": "templates/sprite-animation.html"
+  },
+  {
+    "id": "team-okrs",
+    "name": "Team OKRs",
+    "zh_name": "团队 OKR 追踪",
+    "category": "dashboard",
+    "scenario": "product",
+    "aspect": "桌面 1440",
+    "tags": [
+      "okr",
+      "objectives",
+      "key results",
+      "目标"
+    ],
+    "file": "templates/team-okrs.html"
+  },
+  {
+    "id": "vfx-text-cursor",
+    "name": "VFX Text Cursor",
+    "zh_name": "VFX 文字光标",
+    "category": "video",
+    "scenario": "video",
+    "aspect": "1920×1080 (16:9)",
+    "tags": [
+      "vfx",
+      "text",
+      "cursor",
+      "chromatic",
+      "reveal",
+      "frame"
+    ],
+    "file": "templates/vfx-text-cursor.html"
+  },
+  {
+    "id": "video-hyperframes",
+    "name": "Hyperframes Video",
+    "zh_name": "Hyperframes 视频脚本",
+    "category": "video",
+    "scenario": "video",
+    "aspect": "1920×1080 (16:9)",
+    "tags": [
+      "video",
+      "hyperframes",
+      "remotion",
+      "视频"
+    ],
+    "file": "templates/video-hyperframes.html"
+  },
+  {
+    "id": "waitlist-page",
+    "name": "Waitlist Page",
+    "zh_name": "等候名单页",
+    "category": "prototype",
+    "scenario": "marketing",
+    "aspect": "桌面 1440",
+    "tags": [
+      "waitlist",
+      "launch",
+      "预发布"
+    ],
+    "file": "templates/waitlist-page.html"
+  },
+  {
+    "id": "web-proto-brutalist",
+    "name": "Brutalist Prototype",
+    "zh_name": "Brutalist 原型",
+    "category": "prototype",
+    "scenario": "design",
+    "aspect": "桌面 1440",
+    "tags": [
+      "brutalist",
+      "swiss",
+      "industrial",
+      "hairline"
+    ],
+    "file": "templates/web-proto-brutalist.html"
+  },
+  {
+    "id": "web-proto-editorial",
+    "name": "Editorial Prototype",
+    "zh_name": "Editorial 原型",
+    "category": "prototype",
+    "scenario": "design",
+    "aspect": "桌面 1440",
+    "tags": [
+      "editorial",
+      "minimalist",
+      "serif"
+    ],
+    "file": "templates/web-proto-editorial.html"
+  },
+  {
+    "id": "web-proto-soft",
+    "name": "Apple-tier Soft Prototype",
+    "zh_name": "Apple Soft 原型",
+    "category": "prototype",
+    "scenario": "design",
+    "aspect": "桌面 1440",
+    "tags": [
+      "apple",
+      "soft",
+      "squircle",
+      "spring"
+    ],
+    "file": "templates/web-proto-soft.html"
+  },
+  {
+    "id": "weekly-update",
+    "name": "Weekly Update Deck",
+    "zh_name": "团队周报 Deck",
+    "category": "slides",
+    "scenario": "operations",
+    "aspect": "16:9 ×8",
+    "tags": [
+      "weekly",
+      "周报",
+      "status"
+    ],
+    "file": "templates/weekly-update.html"
+  },
+  {
+    "id": "wireframe-sketch",
+    "name": "Wireframe Sketch",
+    "zh_name": "手绘线框图",
+    "category": "prototype",
+    "scenario": "design",
+    "aspect": "桌面 1440",
+    "tags": [
+      "wireframe",
+      "lo-fi",
+      "sketch",
+      "草稿",
+      "手绘"
+    ],
+    "file": "templates/wireframe-sketch.html"
+  }
+]

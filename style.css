@@ -418,3 +418,47 @@ body {
 .toast.hidden { opacity: 0; pointer-events: none; }
 .toast.success { border-color: var(--green); color: var(--green); }
 .toast.error { border-color: var(--red); color: var(--red); }
+
+/* ===== TEMPLATES MODAL STYLES ===== */
+.template-card {
+  background: #1a1d2b;
+  border: 1px solid #2a2e3d;
+  border-radius: 8px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.template-card:hover {
+  border-color: #5b6ef5;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(91, 110, 245, 0.15);
+}
+.template-badge {
+  display: inline-block;
+  padding: 2px 6px;
+  font-size: 11px;
+  border-radius: 4px;
+  background: rgba(91, 110, 245, 0.15);
+  color: #7f8ff7;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.category-chip {
+  padding: 4px 10px;
+  border-radius: 14px;
+  font-size: 12px;
+  border: 1px solid #2e3346;
+  background: #181b26;
+  color: #8c93a8;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+}
+.category-chip:hover, .category-chip.active {
+  background: #5b6ef5;
+  color: #ffffff;
+  border-color: #5b6ef5;
+}
