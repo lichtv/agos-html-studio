@@ -1,5 +1,23 @@
 [
   {
+    "id": "ready2us-insights",
+    "name": "Ready2US VietnamMade Insights Portal (Brand Kit Pro)",
+    "zh_name": "Ready2US 越南制造智库门户 (官方品牌规范)",
+    "category": "prototype",
+    "scenario": "marketing",
+    "aspect": "Web / Brand Portal",
+    "tags": [
+      "ready2us",
+      "vietnammade",
+      "b2b",
+      "insights",
+      "wordpress",
+      "brand-kit",
+      "headless"
+    ],
+    "file": "templates/ready2us-insights.html"
+  },
+  {
     "id": "wordpress-headless-portal",
     "name": "Ready2US Headless B2B Portal (WordPress Live REST API)",
     "zh_name": "Ready2US 无头WordPress企业门户 (实时API)",
