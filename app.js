@@ -635,7 +635,7 @@ function renderCategories() {
   const cats = ["all", ...new Set(allTemplates.map(t => t.category))].sort();
   categoryChips.innerHTML = cats.map(cat => `
     <button class="category-chip ${cat === currentCategory ? 'active' : ''}" data-cat="${cat}">
-      ${cat === 'all' ? 'Tất cả (75)' : cat}
+      ${cat === 'all' ? `Tất cả (${allTemplates.length})` : cat}
     </button>
   `).join("");
 

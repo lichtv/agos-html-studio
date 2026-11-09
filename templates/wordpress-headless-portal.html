@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ready2US | B2B Market Insights & Global Sale Portal (Headless WP)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['Lora', 'serif'],
+          },
+          colors: {
+            brand: {
+              50: '#f0f4ff',
+              100: '#dbe4fe',
+              500: '#3b5afc',
+              600: '#2543e8',
+              700: '#1d33cb',
+              900: '#0f172a',
+            },
+            accent: {
+              500: '#f59e0b',
+              600: '#d97706',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .prose-content { font-family: 'Lora', serif; font-size: 1.125rem; line-height: 1.8; color: #334155; }
+    .prose-content p { margin-bottom: 1.25rem; }
+    .prose-content h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.5rem; font-weight: 700; color: #0f172a; margin-top: 2rem; margin-bottom: 1rem; }
+    .prose-content h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.25rem; font-weight: 600; color: #1e293b; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+    .prose-content img { border-radius: 0.75rem; max-width: 100%; height: auto; margin: 1.5rem auto; }
+    .prose-content ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.25rem; }
+    .prose-content ol { list-style-type: decimal; padding-left: 1.5rem; margin-bottom: 1.25rem; }
+    .prose-content blockquote { border-left: 4px solid #3b5afc; padding-left: 1rem; font-style: italic; color: #475569; margin: 1.5rem 0; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 antialiased min-h-screen flex flex-col">
+
+  <!-- API CONFIG BAR (Headless Switcher) -->
+  <aside class="bg-slate-900 text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+          ● Live WP-REST API
+        </span>
+        <span class="text-slate-400 hidden sm:inline">Nguồn CMS:</span>
+        <code id="display-api-url" class="text-slate-200 bg-slate-800 px-2 py-0.5 rounded text-[11px]">https://ready2us.com/wp-json/wp/v2/</code>
+      </div>
+      <div class="flex items-center gap-2">
+        <label for="input-wp-url" class="text-slate-400 hidden md:inline">Đổi site WP:</label>
+        <input id="input-wp-url" type="url" value="https://ready2us.com" placeholder="https://your-wp-site.com" 
+               class="bg-slate-800 text-white border border-slate-700 px-2.5 py-1 rounded text-xs focus:ring-1 focus:ring-brand-500 focus:outline-none w-48 sm:w-64" />
+        <button id="btn-switch-source" class="bg-brand-600 hover:bg-brand-700 text-white font-medium px-3 py-1 rounded text-xs transition">
+          Kết nối
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- NAVIGATION HEADER -->
+  <header class="sticky top-0 z-30 bg-white/90 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 py-3.5 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="https://ready2us.com" target="_blank" class="flex items-center gap-2.5">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-500 flex items-center justify-center text-white font-black text-xl shadow-md shadow-brand-500/20">
+            R
+          </div>
+          <div>
+            <div class="text-lg font-bold tracking-tight text-slate-900 leading-none">Ready2US</div>
+            <div class="text-[11px] font-semibold text-brand-600 tracking-wider uppercase">VietnamMade Platform</div>
+          </div>
+        </a>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-600">
+        <a href="#feed" class="text-brand-600 font-semibold transition">B2B Insights</a>
+        <a href="https://ready2us.com/#about" target="_blank" class="hover:text-slate-900 transition">Về Chúng Tôi</a>
+        <a href="https://ready2us.com/#process" target="_blank" class="hover:text-slate-900 transition">Lộ Trình Ready2US</a>
+        <a href="https://ready2us.com/global-sale/assessment.html" target="_blank" class="hover:text-slate-900 transition">Đánh Giá Readiness</a>
+        <a href="https://ready2us.com/wp-admin/" target="_blank" class="inline-flex items-center gap-1.5 text-slate-500 hover:text-slate-800 text-xs bg-slate-100 hover:bg-slate-200 px-3 py-1.5 rounded-full transition">
+          <span>⚙️</span> WP-Admin
+        </a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="https://calendar.app.google/dp8t9Kaof4e6BzBMA" target="_blank"
+           class="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm shadow-sm transition hover:shadow-md">
+          Đặt Lịch Tư Vấn 1:1
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="relative bg-gradient-to-b from-brand-50/60 to-transparent py-14 lg:py-20 border-b border-slate-200/60 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-100/80 border border-brand-200 text-brand-700 text-xs font-semibold mb-5">
+          <span>🇺🇸</span> B2B Global Growth Intelligence
+        </div>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-5">
+          Tri thức Thâm nhập Thị trường Mỹ & Chuỗi Giá trị B2B
+        </h1>
+        <p class="text-base sm:text-lg text-slate-600 leading-relaxed mb-8">
+          Cổng thông tin chuyên sâu của VISIA & Ready2US. Toàn bộ nội dung quản trị trực tiếp trên WordPress, phân phối siêu tốc qua kiến trúc <strong>Headless Edge Jamstack</strong> với AGOS HTML Studio.
+        </p>
+
+        <div class="flex flex-wrap items-center gap-4">
+          <a href="#feed" class="px-5 py-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-sm font-semibold shadow transition">
+            Khám Phá Bài Viết Mới Nhất ↓
+          </a>
+          <a href="https://ready2us.com/global-sale/assessment.html" target="_blank" 
+             class="px-5 py-2.5 rounded-lg bg-white hover:bg-slate-50 text-slate-700 border border-slate-300 text-sm font-semibold shadow-sm transition">
+            Đánh Giá Sẵn Sàng Xuất Khẩu
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN POST FEED SECTION -->
+  <main id="feed" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex-1 w-full">
+    <!-- SEARCH & FILTER TOOLBAR -->
+    <div class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 mb-8 bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+      <div class="relative flex-1">
+        <input id="search-input" type="search" placeholder="Tìm kiếm bài viết, ngành hàng, FDA, chuỗi cung ứng..." 
+               class="w-full pl-10 pr-4 py-2 text-sm bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white transition" />
+        <span class="absolute left-3 top-2.5 text-slate-400 text-sm">🔍</span>
+      </div>
+      <div class="flex items-center gap-2 overflow-x-auto pb-1 md:pb-0" id="category-filter-bar">
+        <button class="cat-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-brand-600 text-white shadow-sm transition" data-cat="all">
+          Tất cả bài viết
+        </button>
+      </div>
+    </div>
+
+    <!-- POST GRID STATUS / SKELETON / CARDS -->
+    <div id="posts-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+      <!-- Skeleton Loading State -->
+      <div class="bg-white rounded-xl border border-slate-200 p-5 animate-pulse space-y-4">
+        <div class="h-44 bg-slate-200 rounded-lg"></div>
+        <div class="h-4 bg-slate-200 rounded w-1/3"></div>
+        <div class="h-6 bg-slate-200 rounded w-5/6"></div>
+        <div class="h-16 bg-slate-100 rounded"></div>
+      </div>
+      <div class="bg-white rounded-xl border border-slate-200 p-5 animate-pulse space-y-4">
+        <div class="h-44 bg-slate-200 rounded-lg"></div>
+        <div class="h-4 bg-slate-200 rounded w-1/3"></div>
+        <div class="h-6 bg-slate-200 rounded w-5/6"></div>
+        <div class="h-16 bg-slate-100 rounded"></div>
+      </div>
+      <div class="bg-white rounded-xl border border-slate-200 p-5 animate-pulse space-y-4">
+        <div class="h-44 bg-slate-200 rounded-lg"></div>
+        <div class="h-4 bg-slate-200 rounded w-1/3"></div>
+        <div class="h-6 bg-slate-200 rounded w-5/6"></div>
+        <div class="h-16 bg-slate-100 rounded"></div>
+      </div>
+    </div>
+
+    <!-- LOAD MORE / STATUS -->
+    <div class="mt-12 text-center" id="load-more-section">
+      <button id="btn-load-more" class="hidden px-6 py-2.5 rounded-lg bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 text-sm font-semibold shadow-sm transition">
+        Xem Thêm Bài Viết
+      </button>
+    </div>
+  </main>
+
+  <!-- READING MODAL / DRAWER -->
+  <div id="reading-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-3 sm:p-6">
+    <div class="bg-white w-full max-w-4xl max-h-[92vh] rounded-2xl shadow-2xl flex flex-col overflow-hidden animate-in fade-in duration-200">
+      <!-- Modal Header -->
+      <div class="px-6 py-4 border-b border-slate-200 flex items-center justify-between bg-slate-50">
+        <div class="flex items-center gap-2 text-xs font-semibold text-brand-600" id="modal-category">
+          <span>📖</span> Chi Tiết Bài Viết
+        </div>
+        <button id="btn-close-modal" class="w-8 h-8 rounded-full bg-slate-200 hover:bg-slate-300 text-slate-600 flex items-center justify-center text-sm font-bold transition">
+          ✕
+        </button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="p-6 sm:p-10 overflow-y-auto flex-1" id="modal-content-area">
+        <h1 id="modal-title" class="text-2xl sm:text-3xl font-extrabold text-slate-900 leading-tight mb-4"></h1>
+        <div class="flex items-center gap-4 text-xs text-slate-500 mb-8 pb-4 border-b border-slate-100" id="modal-meta"></div>
+        <div id="modal-cover" class="mb-8 hidden">
+          <img id="modal-cover-img" src="" alt="Cover" class="w-full max-h-96 object-cover rounded-xl shadow" />
+        </div>
+        <article id="modal-body-html" class="prose-content"></article>
+
+        <!-- CTA Box inside modal -->
+        <div class="mt-12 p-6 rounded-xl bg-gradient-to-r from-brand-50 to-indigo-50 border border-brand-100 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div>
+            <div class="font-bold text-slate-900 text-base">Cần cố vấn lộ trình chuẩn hóa thâm nhập Mỹ?</div>
+            <div class="text-xs text-slate-600 mt-0.5">Đặt hẹn trực tiếp với Chuyên gia Ready2US & VISIA.</div>
+          </div>
+          <a href="https://calendar.app.google/dp8t9Kaof4e6BzBMA" target="_blank"
+             class="px-4 py-2 rounded-lg bg-brand-600 hover:bg-brand-700 text-white text-xs font-semibold shrink-0 shadow transition">
+            Đặt Lịch 1:1 Ngay
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VALUE PROPOSITION / FOOTER -->
+  <footer class="bg-slate-900 text-slate-400 text-xs py-10 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <div class="text-white font-bold text-sm mb-2">Ready2US | VietnamMade</div>
+        <p class="leading-relaxed">
+          Chương trình chiến lược hợp tác cùng VISIA nhằm hỗ trợ doanh nghiệp Việt Nam thâm nhập thị trường Mỹ bài bản thông qua hệ thống Global Sale và AGOS Automation.
+        </p>
+      </div>
+      <div>
+        <div class="text-white font-bold text-sm mb-2">Kiến Trúc Headless CMS</div>
+        <p class="leading-relaxed">
+          Được tối ưu và xuất bản thông qua <strong>AGOS HTML Studio</strong>. Nội dung quản trị bởi WordPress REST API chuẩn mở, nạp tĩnh qua Edge CDN với thời gian phản hồi &lt;150ms.
+        </p>
+      </div>
+      <div>
+        <div class="text-white font-bold text-sm mb-2">Liên Hệ & Cố Vấn</div>
+        <p class="leading-relaxed">
+          Hotline: <a href="tel:+84981270222" class="text-brand-400 hover:underline">+84 981 270 222</a><br>
+          Website: <a href="https://ready2us.com" target="_blank" class="text-brand-400 hover:underline">ready2us.com</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CLIENT-SIDE HEADLESS SCRIPT -->
+  <script>
+    let currentWpUrl = 'https://ready2us.com';
+    let loadedPosts = [];
+    let currentPage = 1;
+    let totalPages = 1;
+    let selectedCategory = 'all';
+
+    const postsContainer = document.getElementById('posts-container');
+    const inputWpUrl = document.getElementById('input-wp-url');
+    const displayApiUrl = document.getElementById('display-api-url');
+    const btnSwitchSource = document.getElementById('btn-switch-source');
+    const btnLoadMore = document.getElementById('btn-load-more');
+    const searchInput = document.getElementById('search-input');
+    const categoryFilterBar = document.getElementById('category-filter-bar');
+
+    // Modal elements
+    const readingModal = document.getElementById('reading-modal');
+    const btnCloseModal = document.getElementById('btn-close-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalMeta = document.getElementById('modal-meta');
+    const modalCategory = document.getElementById('modal-category');
+    const modalCover = document.getElementById('modal-cover');
+    const modalCoverImg = document.getElementById('modal-cover-img');
+    const modalBodyHtml = document.getElementById('modal-body-html');
+
+    function decodeHtml(html) {
+      const txt = document.createElement("textarea");
+      txt.innerHTML = html;
+      return txt.value;
+    }
+
+    function formatDate(dateStr) {
+      const d = new Date(dateStr);
+      return d.toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit', year: 'numeric' });
+    }
+
+    async function fetchPosts(page = 1, searchQuery = '', append = false) {
+      if (!append) {
+        postsContainer.innerHTML = `
+          <div class="col-span-full py-12 text-center text-slate-400 animate-pulse">
+            <div class="text-2xl mb-2">⚡</div>
+            Đang kéo dữ liệu từ WordPress REST API...
+          </div>
+        `;
+      }
+
+      try {
+        let endpoint = `${currentWpUrl.replace(/\/$/, '')}/wp-json/wp/v2/posts?_embed&per_page=9&page=${page}`;
+        if (searchQuery.trim()) {
+          endpoint += `&search=${encodeURIComponent(searchQuery.trim())}`;
+        }
+
+        const res = await fetch(endpoint);
+        if (!res.ok) throw new Error(`HTTP ${res.status}: Không thể kết nối API WordPress.`);
+
+        totalPages = parseInt(res.headers.get('X-WP-TotalPages') || '1', 10);
+        const posts = await res.json();
+
+        if (append) {
+          loadedPosts = [...loadedPosts, ...posts];
+        } else {
+          loadedPosts = posts;
+        }
+
+        renderCategoriesFilter();
+        renderPostCards(loadedPosts);
+
+        if (page < totalPages) {
+          btnLoadMore.classList.remove('hidden');
+        } else {
+          btnLoadMore.classList.add('hidden');
+        }
+      } catch (err) {
+        postsContainer.innerHTML = `
+          <div class="col-span-full p-8 rounded-xl bg-amber-50 border border-amber-200 text-amber-900 text-center">
+            <div class="text-3xl mb-2">⚠️</div>
+            <div class="font-bold text-base mb-1">Không thể tải bài viết từ ${currentWpUrl}</div>
+            <div class="text-xs text-amber-700 max-w-md mx-auto mb-4">${err.message}. Hãy đảm bảo WordPress có bật REST API và CORS header cho phép origin này.</div>
+            <button onclick="switchSource('https://ready2us.com')" class="px-4 py-1.5 bg-amber-700 text-white rounded text-xs font-semibold">
+              Quay lại nguồn mẫu Ready2US
+            </button>
+          </div>
+        `;
+      }
+    }
+
+    function renderCategoriesFilter() {
+      const termsSet = new Set();
+      loadedPosts.forEach(p => {
+        const terms = (p._embedded?.['wp:term'] || []).flat();
+        terms.forEach(t => termsSet.add(t.name));
+      });
+
+      const cats = Array.from(termsSet).slice(0, 6);
+      let html = `
+        <button class="cat-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold ${selectedCategory === 'all' ? 'bg-brand-600 text-white shadow-sm' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'} transition" data-cat="all">
+          Tất cả (${loadedPosts.length})
+        </button>
+      `;
+
+      cats.forEach(c => {
+        const isActive = selectedCategory === c;
+        html += `
+          <button class="cat-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap ${isActive ? 'bg-brand-600 text-white shadow-sm' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'} transition" data-cat="${c}">
+            ${c}
+          </button>
+        `;
+      });
+
+      categoryFilterBar.innerHTML = html;
+
+      categoryFilterBar.querySelectorAll('.cat-filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          selectedCategory = btn.dataset.cat;
+          renderCategoriesFilter();
+          filterAndDisplayPosts();
+        });
+      });
+    }
+
+    function filterAndDisplayPosts() {
+      if (selectedCategory === 'all') {
+        renderPostCards(loadedPosts);
+      } else {
+        const filtered = loadedPosts.filter(p => {
+          const terms = (p._embedded?.['wp:term'] || []).flat().map(t => t.name);
+          return terms.includes(selectedCategory);
+        });
+        renderPostCards(filtered);
+      }
+    }
+
+    function renderPostCards(posts) {
+      if (posts.length === 0) {
+        postsContainer.innerHTML = `
+          <div class="col-span-full py-12 text-center text-slate-500">
+            Không tìm thấy bài viết phù hợp.
+          </div>
+        `;
+        return;
+      }
+
+      postsContainer.innerHTML = posts.map(p => {
+        const title = decodeHtml(p.title?.rendered || 'Không có tiêu đề');
+        const excerpt = decodeHtml(p.excerpt?.rendered || '').replace(/<[^>]+>/g, '').trim().slice(0, 140) + '...';
+        const date = formatDate(p.date);
+        const media = p._embedded?.['wp:featuredmedia']?.[0]?.source_url;
+        const terms = (p._embedded?.['wp:term'] || []).flat();
+        const primaryTag = terms.length > 0 ? terms[0].name : 'Thị trường';
+
+        return `
+          <article class="bg-white rounded-xl border border-slate-200 hover:border-brand-300 hover:shadow-lg transition-all duration-200 overflow-hidden flex flex-col group">
+            <div class="relative h-48 bg-slate-100 overflow-hidden cursor-pointer" onclick="openReadingModal(${p.id})">
+              ${media ? `
+                <img src="${media}" alt="${title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+              ` : `
+                <div class="w-full h-full flex flex-col items-center justify-center bg-gradient-to-tr from-slate-100 to-slate-200 text-slate-400">
+                  <span class="text-3xl mb-1">📄</span>
+                  <span class="text-xs font-semibold">Ready2US Intelligence</span>
+                </div>
+              `}
+              <span class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-slate-900/80 backdrop-blur-sm text-white text-[11px] font-semibold tracking-wide">
+                ${primaryTag}
+              </span>
+            </div>
+
+            <div class="p-5 flex-1 flex flex-col justify-between">
+              <div>
+                <div class="text-xs text-slate-400 mb-2 flex items-center gap-2">
+                  <span>📅 ${date}</span>
+                  <span>•</span>
+                  <span>4 phút đọc</span>
+                </div>
+                <h3 class="font-bold text-slate-900 text-lg leading-snug group-hover:text-brand-600 transition-colors line-clamp-2 cursor-pointer mb-2" onclick="openReadingModal(${p.id})">
+                  ${title}
+                </h3>
+                <p class="text-xs text-slate-600 line-clamp-3 leading-relaxed mb-4">
+                  ${excerpt}
+                </p>
+              </div>
+
+              <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+                <button onclick="openReadingModal(${p.id})" class="text-xs font-bold text-brand-600 hover:text-brand-700 inline-flex items-center gap-1 group-hover:translate-x-0.5 transition">
+                  Đọc nội dung đầy đủ ➔
+                </button>
+                <a href="${p.link}" target="_blank" title="Xem trên WP gốc" class="text-slate-400 hover:text-slate-600 text-xs">
+                  ↗ WP gốc
+                </a>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    window.openReadingModal = function(postId) {
+      const post = loadedPosts.find(p => p.id === postId);
+      if (!post) return;
+
+      const title = decodeHtml(post.title?.rendered || '');
+      const terms = (post._embedded?.['wp:term'] || []).flat();
+      const primaryTag = terms.length > 0 ? terms[0].name : 'Chuyên mục';
+      const date = formatDate(post.date);
+      const media = post._embedded?.['wp:featuredmedia']?.[0]?.source_url;
+
+      modalTitle.textContent = title;
+      modalCategory.innerHTML = `<span>🏷️</span> ${primaryTag} • Ready2US Intelligence`;
+      modalMeta.innerHTML = `<span>Ngày đăng: ${date}</span> <span>•</span> <span>Nguồn: ready2us.com</span>`;
+
+      if (media) {
+        modalCoverImg.src = media;
+        modalCover.classList.remove('hidden');
+      } else {
+        modalCover.classList.add('hidden');
+      }
+
+      modalBodyHtml.innerHTML = post.content?.rendered || '<p>Không có nội dung.</p>';
+      readingModal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    };
+
+    function closeModal() {
+      readingModal.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    btnCloseModal.addEventListener('click', closeModal);
+    readingModal.addEventListener('click', (e) => {
+      if (e.target === readingModal) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    function switchSource(newUrl) {
+      if (!newUrl) return;
+      currentWpUrl = newUrl.trim();
+      inputWpUrl.value = currentWpUrl;
+      displayApiUrl.textContent = `${currentWpUrl.replace(/\/$/, '')}/wp-json/wp/v2/`;
+      currentPage = 1;
+      fetchPosts(1);
+    }
+
+    btnSwitchSource.addEventListener('click', () => {
+      switchSource(inputWpUrl.value);
+    });
+
+    let searchTimeout = null;
+    searchInput.addEventListener('input', (e) => {
+      clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(() => {
+        currentPage = 1;
+        fetchPosts(1, e.target.value);
+      }, 400);
+    });
+
+    btnLoadMore.addEventListener('click', () => {
+      if (currentPage < totalPages) {
+        currentPage += 1;
+        fetchPosts(currentPage, searchInput.value, true);
+      }
+    });
+
+    // Khởi chạy nạp ngay khi mở
+    fetchPosts(1);
+  </script>
+</body>
+</html>

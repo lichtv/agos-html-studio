@@ -1,5 +1,25 @@
 [
   {
+    "id": "wordpress-headless-portal",
+    "name": "Ready2US Headless B2B Portal (WordPress Live REST API)",
+    "zh_name": "Ready2US 无头WordPress企业门户 (实时API)",
+    "category": "prototype",
+    "scenario": "marketing",
+    "aspect": "Web / Headless CMS Portal",
+    "tags": [
+      "wordpress",
+      "headless",
+      "ready2us",
+      "b2b",
+      "api",
+      "cms",
+      "news",
+      "insights",
+      "vietnammade"
+    ],
+    "file": "templates/wordpress-headless-portal.html"
+  },
+  {
     "id": "article-magazine",
     "name": "Magazine Article",
     "zh_name": "杂志文章",
